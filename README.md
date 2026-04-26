@@ -2,7 +2,7 @@
 
 **An aesthetic, Pinteresty student dashboard** to manage tasks, track progress, listen to focus music, and stay organized — all in one place.
 
-🔗 **Live demo:** [https://AyeshaHejazi.github.io/student-hub](https://Ayesha.githuHejazib.io/student-hub) 
+🔗 **Live demo:** (https://AyeshaHejazi.github.io/Student-hub)
 ---
 
 ## ✨ Features
