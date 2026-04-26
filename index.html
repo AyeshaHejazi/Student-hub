@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>écru · student hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard-container">
+  <div class="hero-section">
+    <div class="title-area">
+      <h1><i class="fas fa-seedling"></i> écru · student hub</h1>
+      <div class="date-badge" id="currentDate"></div>
+    </div>
+    <div class="user-profile" id="pfpClickArea">
+      <div class="pfp-circle" id="pfpCircle">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <div class="user-info">
+        <strong>student · creator</strong>
+        <span>🎯 click to upload pfp</span>
+      </div>
+    </div>
+    <div class="quote-card">
+      <i class="fas fa-quote-left"></i>
+      <p>"Can't be good at everything but that doesn't mean you can't be anything."</p>
+      <span>— John Lennon</span>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <!-- LEFT COLUMN -->
+    <div class="left-col">
+      <div class="card timer-card">
+        <div class="card-header">
+          <h3><i class="fas fa-hourglass-half"></i> STUDY SECTION</h3>
+          <button id="resetTimerBtn" class="icon-btn"><i class="fas fa-undo-alt"></i></button>
+        </div>
+        <div class="timer-display" id="timerDisplay">25:00</div>
+        <div class="timer-controls">
+          <button id="startTimerBtn"><i class="fas fa-play"></i> Start</button>
+          <button id="pauseTimerBtn"><i class="fas fa-pause"></i> Pause</button>
+        </div>
+      </div>
+
+      <div class="card calendar-card">
+        <div class="card-header">
+          <h3><i class="fas fa-calendar-alt"></i> Calendar</h3>
+          <i class="fas fa-star" style="color:#cbb898;"></i>
+        </div>
+        <div id="calendarWidget" class="calendar-mini"></div>
+      </div>
+
+      <div class="card daily-card">
+        <div class="card-header">
+          <h3><i class="fas fa-sun"></i> Daily Planner</h3>
+          <button id="addDailyTaskBtn" class="icon-btn"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="task-list" id="dailyTaskList"></div>
+      </div>
+
+      <div class="card running-card">
+        <div class="card-header">
+          <h3><i class="fas fa-journal-whills"></i> Running Record</h3>
+          <button id="addRecordBtn" class="icon-btn"><i class="fas fa-feather-alt"></i></button>
+        </div>
+        <div class="running-notes" id="runningNotesList"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="right-col">
+      <div class="card weekly-card">
+        <div class="card-header">
+          <h3><i class="fas fa-calendar-week"></i> Weekly Plan</h3>
+          <button id="addWeeklyTaskBtn" class="icon-btn"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="weekly-grid" id="weeklyGrid"></div>
+      </div>
+
+      <div class="card playlist-card">
+        <div class="card-header">
+          <h3><i class="fas fa-headphones-alt"></i> Now Playing · My 5 Songs</h3>
+          <i class="fas fa-music"></i>
+        </div>
+        <div class="playlist-container">
+          <div class="current-track">
+            <i class="fas fa-play-circle" id="playPauseBtn"></i>
+            <span id="currentSongTitle">Select a song</span>
+          </div>
+          <div class="player-controls">
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.7">
+            <i class="fas fa-volume-up"></i>
+            <button id="repeatBtn" class="icon-btn"><i class="fas fa-redo-alt"></i></button>
+          </div>
+          <ul class="playlist" id="playlist"></ul>
+          <audio id="audioPlayer"></audio>
+        </div>
+      </div>
+
+      <div class="card upcoming-card">
+        <div class="card-header">
+          <h3><i class="fas fa-clock"></i> Upcoming Tasks · Tracker</h3>
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="upcoming-list" id="upcomingList"></div>
+        <div class="tracker-stats">
+          <span>📊 completion rate</span>
+          <span id="completionPercent">0%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="info-note"><i class="fas fa-check-circle"></i> Check ✔️ upcoming to mark complete & tracked</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3 id="modalTitle">➕ Add task</h3>
+    <input type="text" id="taskTitleInput" placeholder="e.g., Read 20 pages">
+    <select id="taskDaySelect">
+      <option value="today">Today (Daily)</option>
+      <option value="monday">Monday</option>
+      <option value="tuesday">Tuesday</option>
+      <option value="wednesday">Wednesday</option>
+      <option value="thursday">Thursday</option>
+      <option value="friday">Friday</option>
+      <option value="saturday">Saturday</option>
+      <option value="sunday">Sunday</option>
+    </select>
+    <button id="confirmTaskBtn">✨ Create task</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
